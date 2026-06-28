@@ -136,7 +136,7 @@ function NavBar({ active, onNav }) {
             }}>{n}</button>
         ))}
         <button style={{ ...styles.btn, ...styles.btnPrimary, marginLeft: "8px", padding: "5px 12px", fontSize: "11px" }}>
-          ↓ Resume
+            <a href="Pawan_Shinde_Robotics_Resume.pdf"style={{ ...styles.btn, ...styles.btnPrimary }} download class="btn btn-secondary">Resume</a>
         </button>
       </div>
     </nav>
