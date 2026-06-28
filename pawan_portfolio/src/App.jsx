@@ -204,7 +204,7 @@ function HeroSection() {
           </p>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
             <a href="#projects" style={{ ...styles.btn, ...styles.btnPrimary }}>View Projects →</a>
-            <a href="#" style={styles.btn}>↓ Download Resume</a>
+             <a href="Pawan_Shinde_Robotics_Resume.pdf" download class="btn btn-secondary">Download Resume</a>
             <a href="#contact" style={styles.btn}>✉ Contact Me</a>
           </div>
         </div>
