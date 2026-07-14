@@ -408,6 +408,8 @@ const PROJECTS = [
     id: "01",
     title: "Variance-Based Adaptive AMCL Localization",
     subtitle: "for Symmetric Corridor Environments",
+    github:"https://github.com/pawanshinde7218/adaptive-amcl-corridor-navigation",
+    readmore:"https://github.com/pawanshinde7218/adaptive-amcl-corridor-navigation/blob/main/README.md",
     tags: ["ROS 2", "Python", "Nav2", "AMCL", "SLAM Toolbox", "Gazebo", "+3"],
     problem: "Standard AMCL particle filters fail in symmetric long-corridor environments due to ambiguous LiDAR scan distributions — a known production failure mode in warehouse AMR deployments.",
     solution: "A variance-based ROS 2 Python node that analyzes 2D LiDAR scans to classify the environment as symmetric or asymmetric, then dynamically retunes AMCL via ROS 2 services for context-aware localization.",
@@ -417,6 +419,9 @@ const PROJECTS = [
     id: "02",
     title: "Full-Stack Autonomous Mobile Robot",
     subtitle: "Modeling, Mapping, Localization & Navigation",
+    github:
+      "https://github.com/pawanshinde7218/ros2-amr-navigation",
+    readmore:"https://github.com/pawanshinde7218/ros2-amr-navigation/blob/main/README.md",
     tags: ["ROS 2", "C++", "Python", "Nav2", "SLAM Toolbox", "AMCL", "+1"],
     problem: "Build an end-to-end AMR stack — from accurate robot modeling and physics-based simulation to autonomous navigation in a custom environment.",
     solution: "A modular ROS 2 pipeline with differential-drive URDF/Xacro modeling, sensor-emulated Gazebo simulation, SLAM Toolbox mapping, AMCL localization and Nav2 planning — all launchable with a single command.",
@@ -425,44 +430,244 @@ const PROJECTS = [
 ];
 
 function ProjectsSection() {
-  const [expanded, setExpanded] = useState({});
   return (
     <section id="projects" style={{ ...styles.section, background: "#0a0a0c" }}>
       <p style={styles.eyebrow}>04 — PROJECTS</p>
-      <h2 style={styles.sectionTitle}>Featured <span style={gradientText}>Work</span></h2>
-      <p style={{ color: COLORS.gray, fontSize: "14px", marginBottom: "40px" }}>Two end-to-end ROS 2 robotics projects — one solves a real warehouse failure mode, the other is the full AMR stack from URDF to autonomous navigation.</p>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-        {PROJECTS.map(p => (
-          <div key={p.id} style={{ ...styles.card, border: `1px solid ${p.color}30`, position: "relative" }}>
-            <div style={{ position: "absolute", top: "12px", right: "12px", fontSize: "10px", color: p.color, border: `1px solid ${p.color}50`, borderRadius: "9999px", padding: "2px 8px", letterSpacing: "0.1em" }}>⭐ FEATURED</div>
-            <div style={{ fontFamily: "monospace", fontSize: "10px", color: COLORS.grayDark, marginBottom: "12px" }}>
-              · /projects/{p.id === "01" ? "amcl-variance.launch.py" : "amr-full-stack.launch.py"}
+
+      <h2 style={styles.sectionTitle}>
+        Featured <span style={gradientText}>Work</span>
+      </h2>
+
+      <p
+        style={{
+          color: COLORS.gray,
+          fontSize: "14px",
+          marginBottom: "40px",
+        }}
+      >
+        Two end-to-end ROS 2 robotics projects — one explores adaptive AMCL
+        localization in symmetric corridor environments, while the other
+        implements the complete AMR navigation stack from robot modeling to
+        autonomous navigation.
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
+        }}
+      >
+        {PROJECTS.map((p) => (
+          <div
+            key={p.id}
+            style={{
+              ...styles.card,
+              border: `1px solid ${p.color}30`,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "12px",
+                right: "12px",
+                fontSize: "10px",
+                color: p.color,
+                border: `1px solid ${p.color}50`,
+                borderRadius: "9999px",
+                padding: "2px 8px",
+                letterSpacing: "0.1em",
+              }}
+            >
+              ⭐ FEATURED
             </div>
-            <div style={{ height: "120px", background: `linear-gradient(135deg, ${p.color}15, ${COLORS.purple}10)`, borderRadius: "8px", marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${p.color}20` }}>
-              <div style={{ fontSize: "32px" }}>{p.id === "01" ? "📡" : "🤖"}</div>
+
+            <div
+              style={{
+                fontFamily: "monospace",
+                fontSize: "10px",
+                color: COLORS.grayDark,
+                marginBottom: "12px",
+              }}
+            >
+              · /projects/
+              {p.id === "01"
+                ? "adaptive-amcl.launch.py"
+                : "amr-navigation.launch.py"}
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginBottom: "14px" }}>
-              {p.tags.map(t => <span key={t} style={styles.pill}>{t}</span>)}
-            </div>
-            <div style={{ fontSize: "10px", color: p.color, letterSpacing: "0.1em", marginBottom: "4px" }}>PROJECT {p.id}</div>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "2px" }}>{p.title}</h3>
-            <p style={{ fontSize: "12px", color: COLORS.grayDark, marginBottom: "14px" }}>{p.subtitle}</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "16px" }}>
-              <div style={{ background: "#0f0f11", borderRadius: "8px", padding: "12px" }}>
-                <div style={{ fontSize: "10px", color: "#EF4444", letterSpacing: "0.1em", marginBottom: "6px" }}>PROBLEM</div>
-                <p style={{ fontSize: "12px", color: COLORS.gray, lineHeight: 1.5 }}>{p.problem}</p>
+
+            <div
+              style={{
+                height: "120px",
+                background: `linear-gradient(135deg, ${p.color}15, ${COLORS.purple}10)`,
+                borderRadius: "8px",
+                marginBottom: "16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: `1px solid ${p.color}20`,
+              }}
+            >
+              <div style={{ fontSize: "32px" }}>
+                {p.id === "01" ? "📡" : "🤖"}
               </div>
-              <div style={{ background: "#0f0f11", borderRadius: "8px", padding: "12px" }}>
-                <div style={{ fontSize: "10px", color: "#22C55E", letterSpacing: "0.1em", marginBottom: "6px" }}>SOLUTION</div>
-                <p style={{ fontSize: "12px", color: COLORS.gray, lineHeight: 1.5 }}>{p.solution}</p>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "4px",
+                marginBottom: "14px",
+              }}
+            >
+              {p.tags.map((t) => (
+                <span key={t} style={styles.pill}>
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div
+              style={{
+                fontSize: "10px",
+                color: p.color,
+                letterSpacing: "0.1em",
+                marginBottom: "4px",
+              }}
+            >
+              PROJECT {p.id}
+            </div>
+
+            <h3
+              style={{
+                fontSize: "16px",
+                fontWeight: 700,
+                marginBottom: "2px",
+              }}
+            >
+              {p.title}
+            </h3>
+
+            <p
+              style={{
+                fontSize: "12px",
+                color: COLORS.grayDark,
+                marginBottom: "14px",
+              }}
+            >
+              {p.subtitle}
+            </p>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "10px",
+                marginBottom: "16px",
+              }}
+            >
+              <div
+                style={{
+                  background: "#0f0f11",
+                  borderRadius: "8px",
+                  padding: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "10px",
+                    color: "#EF4444",
+                    letterSpacing: "0.1em",
+                    marginBottom: "6px",
+                  }}
+                >
+                  PROBLEM
+                </div>
+
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: COLORS.gray,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {p.problem}
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "#0f0f11",
+                  borderRadius: "8px",
+                  padding: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "10px",
+                    color: "#22C55E",
+                    letterSpacing: "0.1em",
+                    marginBottom: "6px",
+                  }}
+                >
+                  SOLUTION
+                </div>
+
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: COLORS.gray,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {p.solution}
+                </p>
               </div>
             </div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button style={{ ...styles.btn, fontSize: "12px", padding: "6px 12px" }}>🐙 GitHub »</button>
-              <button onClick={() => setExpanded(x => ({ ...x, [p.id]: !x[p.id] }))}
-                style={{ ...styles.btn, fontSize: "12px", padding: "6px 12px" }}>
-                Read More {expanded[p.id] ? "∧" : "∨"}
-              </button>
+
+            {/* Buttons */}
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginTop: "8px",
+              }}
+            >
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...styles.btn,
+                  fontSize: "12px",
+                  padding: "6px 12px",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                🐙 GitHub
+              </a>
+
+              <a
+                href={p.readmore}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...styles.btn,
+                  fontSize: "12px",
+                  padding: "6px 12px",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                📖 Read More
+              </a>
             </div>
           </div>
         ))}
